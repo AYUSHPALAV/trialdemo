@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Public Feedback Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; background: #0b1020; color: #e6e9ef; }
+    .container { max-width: 860px; margin: 0 auto; padding: 24px; }
+    h1 { font-weight: 700; margin: 0 0 16px; }
+    .card { background: #11162a; border: 1px solid #1f2a44; border-radius: 10px; padding: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+    label { font-size: 14px; color: #b7c0d8; display: block; margin-bottom: 6px; }
+    input, select, textarea { width: 100%; background: #0a0f1f; color: #e6e9ef; border: 1px solid #23314f; border-radius: 8px; padding: 10px 12px; outline: none; }
+    textarea { min-height: 120px; resize: vertical; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .actions { display: flex; gap: 8px; }
+    button { background: #3b82f6; color: white; border: none; border-radius: 8px; padding: 10px 14px; cursor: pointer; }
+    button:hover { background: #2f6fdb; }
+    .muted { color: #9aa6bf; font-size: 13px; }
+    .list { margin-top: 20px; display: grid; gap: 12px; }
+    .comment { background: #0a0f1f; border: 1px solid #23314f; border-radius: 10px; padding: 12px; }
+    .meta { font-size: 12px; color: #9aa6bf; display: flex; gap: 12px; flex-wrap: wrap; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; }
+    .badge.pending { background: #4b5563; }
+    .badge.positive { background: #15803d; }
+    .badge.neutral { background: #6366f1; }
+    .badge.negative { background: #b91c1c; }
+  </style>
+  <script defer src="/app.js"></script>
+  <script>
+    window.__EXAMPLE_TOPICS__ = [
+      { id: 'healthcare_reform', name: 'Healthcare Reform' },
+      { id: 'new_tax_policy', name: 'New Tax Policy' },
+      { id: 'environmental_initiatives', name: 'Environmental Initiatives' }
+    ];
+  </script>
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0b1020" />
+  <link rel="icon" href="data:," />
+  </head>
+<body>
+  <div class="container">
+    <h1>Public Feedback Portal</h1>
+    <div class="card" style="margin-bottom: 16px;">
+      <form id="comment-form">
+        <div style="margin-bottom: 12px;">
+          <label for="text">Comment</label>
+          <textarea id="text" name="text" placeholder="Share your thoughts..." required></textarea>
+        </div>
+        <div class="row" style="margin-bottom: 12px;">
+          <div>
+            <label for="author_name">Your name (optional)</label>
+            <input id="author_name" name="author_name" placeholder="Anonymous" />
+          </div>
+          <div>
+            <label for="topic_id">Topic</label>
+            <select id="topic_id" name="topic_id"></select>
+          </div>
+        </div>
+        <div class="actions">
+          <button type="submit">Submit</button>
+          <div id="form-status" class="muted"></div>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <div style="display:flex; align-items:center; justify-content: space-between; margin-bottom: 8px;">
+        <h2 style="margin:0; font-size: 18px;">All Comments</h2>
+        <div class="muted">Sentiment updates arrive from an external analysis service.</div>
+      </div>
+      <div id="comments" class="list"></div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+

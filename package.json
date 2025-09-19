@@ -1,0 +1,21 @@
+{
+  "name": "public-feedback-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public Feedback Portal - submit and list comments with restricted backend sentiment updates",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "better-sqlite3": "^9.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
+
+
